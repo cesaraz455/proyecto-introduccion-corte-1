@@ -1,5 +1,6 @@
 from models.automataCorreo import automataCorreo
 from models.automataEntero import automataEntero
+from models.automataId import automataId
 from models.automataReales import automataReales
 
 class automataController:
@@ -12,10 +13,14 @@ class automataController:
         correo1 = automataCorreo(correo)
         return correo1.Correo()
 
-    # def esReal(self, variable):
-    #     real1 = AutomataReales(variable)
-    #     return real1.Real()
+    def esReal(self, variable):
+        real1 = automataReales(variable)
+        return real1.Real()
+    
+    def esId(self, variable):
+        id1 = automataId(variable)
+        return id1.Id()
 
-    # def esIdentificador(self, identificador, cmpResult):
-    #     indentificador1 = AutomataReales(variable)
-    #     resultado = indentificador1.Real()
+    """def esIdentificador(self, identificador, cmpResult):
+        indentificador1 = automataId()
+        resultado = indentificador1.Id()"""
