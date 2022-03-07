@@ -7,36 +7,62 @@ class home:
     
     def init(self):
         window = Tk()
-        window.title("Validación de cadenas")
-        window.geometry('650x300')
-        lbl = Label(window, text="Numero Entero")
-        lbl.grid(column=0, row=0)
-        self.txt1 = Entry(window,width=10)
-        self.txt1.grid(column=1, row=0)
-        lbl2 = Label(window, text="Numero Real")
-        lbl2.grid(column=0, row=1)
-        self.txt2 = Entry(window,width=10)
-        self.txt2.grid(column=1, row=1)
-        lbl3 = Label(window, text="Numero notación científica")
-        lbl3.grid(column=0, row=2)
-        self.txt3 = Entry(window,width=10)
-        self.txt3.grid(column=1, row=2)
-        lbl4 = Label(window, text="Correo")
-        lbl4.grid(column=0, row=3)
-        self.txt4 = Entry(window,width=10)
-        self.txt4.grid(column=1, row=3)
+        window.title("Validación de cadenas mediante Automatas")
+        window.geometry('700x250')
+
+        # Primera fila
+        lblEntero = Label(window, text="Numero Entero")
+        lblEntero.grid(column=0, row=0)
+        self.txtEntero = Entry(window, width=10)
+        self.txtEntero.grid(column=1, row=0)
+        btnEntero = Button(window, text="Comprobar", command=self.clickedEntero)
+        btnEntero.grid(column=2, row=0)
+
+        # Segunda fila
+        lblCorreo = Label(window, text="Correo electrónico")
+        lblCorreo.grid(column=0, row=1)
+        self.txtCorreo = Entry(window, width=10)
+        self.txtCorreo.grid(column=1, row=1)
+        btnCorreo = Button(window, text="Comprobar", command=self.clickedCorreo)
+        btnCorreo.grid(column=2, row=1)
+
+        # Tercera fila
+        lblReal = Label(window, text="Numero Real")
+        lblReal.grid(column=0, row=2)
+        self.txtReal = Entry(window, width=10)
+        self.txtReal.grid(column=1, row=2)
+        btnReal = Button(window, text="Comprobar", command=self.clickedReal)
+        btnReal.grid(column=2, row=2)
+
+        # Cuarta fila
+        lblIdentificador = Label(window, text="Identificador")
+        lblIdentificador.grid(column=0, row=3)
+        self.txtIdentificador = Entry(window, width=10)
+        self.txtIdentificador.grid(column=1, row=3)
+        btnIdentificador = Button(window, text="Comprobar", command=self.clickedIdentificador)
+        btnIdentificador.grid(column=2, row=3)
+
         self.cmpResult = Text(window,width=60,height=10)
-        self.cmpResult.grid(row=5,column=0)
-        btn = Button(window, text="Comprobar", command=self.clicked)
-        btn.grid(column=2, row=0)
+        self.cmpResult.grid(row=4,column=0)
+
         window.mainloop()
 
-    def clicked(self):
+    def clickedEntero(self):
         self.cmpResult.delete('1.0', END)
-        cadenaEntero = self.automataController.esEntero(self.txt1.get())
-        cadenaReal = self.automataController.esReal(self.txt2.get())
+        cadenaEntero = self.automataController.esEntero(self.txtEntero.get())
+        self.cmpResult.insert(INSERT, "Validación de entero:\n" + cadenaEntero)
 
-        self.cmpResult.insert(INSERT, cadenaEntero + '\n' + cadenaReal)
+    def clickedCorreo(self):
+        self.cmpResult.delete('1.0', END)
+        cadenaCorreo = self.automataController.esCorreo(self.txtCorreo.get())
+        self.cmpResult.insert(INSERT, "Validación de correo electrónico:\n" + cadenaCorreo)
 
-        # self.automataController.esCorreo(self.txt3.get(), self.cmpResult)
-        # self.automataController.esIdentificador(self.txt4.get(), self.cmpResult)
+    def clickedReal(self):
+        self.cmpResult.delete('1.0', END)
+        # cadenaReal = self.automataController.esReal(self.txtReal.get())
+        # self.cmpResult.insert(INSERT, "Validación de real\n" + cadenaReal)
+
+    def clickedIdentificador(self):
+        self.cmpResult.delete('1.0', END)
+        # cadenaIdentificador = self.automataController.esIdentificador(self.txtIdentificador.get())
+        # self.cmpResult.insert(INSERT, "Validación de identificador\n" + cadenaIdentificador)
