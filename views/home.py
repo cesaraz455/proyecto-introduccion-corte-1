@@ -59,10 +59,10 @@ class home:
 
     def clickedReal(self):
         self.cmpResult.delete('1.0', END)
-        # cadenaReal = self.automataController.esReal(self.txtReal.get())
-        # self.cmpResult.insert(INSERT, "Validación de real\n" + cadenaReal)
+        cadenaReal = self.automataController.esReal(self.txtReal.get())
+        self.cmpResult.insert(INSERT, "Validación de real\n" + cadenaReal)
 
     def clickedIdentificador(self):
         self.cmpResult.delete('1.0', END)
-        # cadenaIdentificador = self.automataController.esIdentificador(self.txtIdentificador.get())
-        # self.cmpResult.insert(INSERT, "Validación de identificador\n" + cadenaIdentificador)
+        cadenaIdentificador = self.automataController.esId(self.txtIdentificador.get())
+        self.cmpResult.insert(INSERT, "Validación de identificador\n" + cadenaIdentificador)

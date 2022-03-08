@@ -14,17 +14,17 @@ class automataReales:
                 elif str.isdigit(self.transicion):
                     self.estado=4
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"
             elif self.estado == 2:
                 if str.isdigit(self.transicion):
                         self.estado=4
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"
             elif self.estado == 3:
                 if str.isdigit(self.transicion):
                         self.estado = 4
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"
             elif self.estado == 4:
                 if self.transicion == ".":
                     self.estado = 5
@@ -45,6 +45,6 @@ class automataReales:
             else:
                 return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
         if self.estado == 6:
-            return "Éxito: El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+            return "Éxito: ¡El valor ingresado es un número Real!"
         else:
-            return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+            return "Error: El valor ingresado no corresponde a un tipo Real, el automata no completo todos los estados"
