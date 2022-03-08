@@ -19,7 +19,7 @@ class automataController:
     
     def esId(self, variable):
         id1 = automataId(variable)
-        return id1.Id()
+        return id1.is_id()
 
     """def esIdentificador(self, identificador, cmpResult):
         indentificador1 = automataId()
