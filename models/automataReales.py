@@ -14,36 +14,36 @@ class automataReales:
                 elif str.isdigit(self.transicion):
                     self.estado=4
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"            
             elif self.estado == 2:
                 if str.isdigit(self.transicion):
-                        self.estado=4
+                        self.estado=4                
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"
-            elif self.estado == 3:
-                if str.isdigit(self.transicion):
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito"
+            elif self.estado == 3:                
+                if str.isdigit(self.transicion):        
                         self.estado = 4
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito, un + o un -"
-            elif self.estado == 4:
-                if self.transicion == ".":
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito"
+            elif self.estado == 4: #D (DIGITO)
+                if self.transicion == ".": 
                     self.estado = 5
                 elif str.isdigit(self.transicion):
-                    self.estado = 6
+                    self.estado = 4
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito"
             elif self.estado == 5:
                 if str.isdigit(self.transicion):
                     self.estado = 6
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito"
             elif self.estado == 6:
                 if str.isdigit(self.transicion):
                     self.estado = 6
                 else:
-                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                    return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito"            
             else:
-                return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito o un + o -"
+                return "El carácter <" + self.transicion + "> en la posición " + str(i+1) + ", debe ser un dígito"
         if self.estado == 6:
             return "Éxito: ¡El valor ingresado es un número Real!"
         else:
