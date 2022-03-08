@@ -2,7 +2,7 @@ class automataId:
 
     def __init__(self, texto):
         self.texto = texto
-        self.estadoFinal = "F"
+        self.estadoFinal = "D"
 
     def isalpha(self, caracter):
         # letra(letra|digito)
@@ -24,19 +24,19 @@ class automataId:
             elif self.estado == "B":
                 if self.isalpha(self.transicion):
                     self.estado = "C" #letra
-                elif self.transicion == str.isdigit:
+                elif self.transicion.isnumeric:
                     self.estado = "D"  #digito --> aqui deberia entrar en la pos 1, q2
                 else:
-                    return "El caracter <"+ self.transicion +">  en la posicion "+ str(+1) +", debe ser una letra o un digito"
+                    return "xxEl caracter <"+ self.transicion +">  en la posicion "+ str(+1) +", debe ser una letra o un digito"
             elif self.estado == "C":
                 if self.isalpha(self.transicion):
                     self.estado = "C"
-                elif self.transicion == str.isdigit:
+                elif self.transicion.isnumeric:
                     self.estado = "D"
                 else:
                     return "El caracter <"+self.transicion+"> en la posicion "+str(i+1)+", debe ser una letra o un digito"
             elif self.estado == "D":
-                if self.isdigit(self.transicion):
+                if self.transicion.isnumeric:
                     self.estado = "D"
                 elif self.transicion == str.isalpha:
                     self.estado = "C"
